@@ -4,4 +4,10 @@
     <system systemId="http://localhost:8080/Affablebean_01/WSCustomer?xsd=1" uri="xml-resources/web-service-references/WSCustomer/wsdl/localhost_8080/Affablebean_01/WSCustomer.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/Affablebean_01/WSProd?WSDL" uri="xml-resources/web-service-references/WSProd/wsdl/localhost_8080/Affablebean_01/WSProd.wsdl"/>
     <system systemId="http://localhost:8080/Affablebean_01/WSProd?xsd=1" uri="xml-resources/web-service-references/WSProd/wsdl/localhost_8080/Affablebean_01/WSProd.xsd_1.xsd"/>
+    <system systemId="http://192.168.0.16:8080/Affablebean_01/wsPedidoHeader?WSDL" uri="xml-resources/web-service-references/wsPedidoHeader/wsdl/192.168.0.16_8080/Affablebean_01/wsPedidoHeader.wsdl"/>
+    <system systemId="http://192.168.0.16:8080/Affablebean_01/wsPedidoHeader?xsd=1" uri="xml-resources/web-service-references/wsPedidoHeader/wsdl/192.168.0.16_8080/Affablebean_01/wsPedidoHeader.xsd_1.xsd"/>
+    <system systemId="http://192.168.0.16:8080/Affablebean_01/WSPedidoItem?WSDL" uri="xml-resources/web-service-references/WSPedidoItem/wsdl/192.168.0.16_8080/Affablebean_01/WSPedidoItem.wsdl"/>
+    <system systemId="http://192.168.0.16:8080/Affablebean_01/WSPedidoItem?xsd=1" uri="xml-resources/web-service-references/WSPedidoItem/wsdl/192.168.0.16_8080/Affablebean_01/WSPedidoItem.xsd_1.xsd"/>
+    <system systemId="http://192.168.0.16:8080/Affablebean_01/wsPedidoItems?WSDL" uri="xml-resources/web-service-references/wsPedidoItems/wsdl/192.168.0.16_8080/Affablebean_01/wsPedidoItems.wsdl"/>
+    <system systemId="http://192.168.0.16:8080/Affablebean_01/wsPedidoItems?xsd=1" uri="xml-resources/web-service-references/wsPedidoItems/wsdl/192.168.0.16_8080/Affablebean_01/wsPedidoItems.xsd_1.xsd"/>
 </catalog>

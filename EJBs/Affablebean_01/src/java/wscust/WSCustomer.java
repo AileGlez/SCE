@@ -31,7 +31,6 @@ public class WSCustomer {
     //@Oneway
     public long create(@WebParam(name = "entity") Customer entity) 
     {
-    
         ejbRef.create(entity);
         long idNvoCustomer = entity.getId();
         Logger.getLogger(WSCustomer.class.getName()).log(Level.SEVERE, "El id del nuevo cliente es {0}", entity.toString());
@@ -51,7 +50,7 @@ public class WSCustomer {
     }
 
     @WebMethod(operationName = "find")
-    public Customer find(@WebParam(name = "id") Object id) {
+    public Customer find(@WebParam(name = "id") Integer id) {
         return ejbRef.find(id);
     }
 

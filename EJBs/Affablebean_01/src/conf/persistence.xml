@@ -3,6 +3,8 @@
   <persistence-unit name="Affablebean_01PU" transaction-type="JTA">
     <jta-data-source>java:app/affablebean</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
-    <properties/>
+    <properties>
+        <property name="eclipselink.logging.level" value="FINEST"/>
+    </properties>
   </persistence-unit>
 </persistence>

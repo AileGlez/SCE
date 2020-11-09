@@ -19,7 +19,7 @@
     <target name="wsimport-client-WSProd" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/WSProd"/>
         <property name="wsdl-WSProd" location="xml-resources/web-service-references/WSProd/wsdl/localhost_8080/Affablebean_01/WSProd.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSProd" destdir="${build.generated.dir}/jax-wsCache/WSProd" wsdl="${wsdl-WSProd}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Affablebean_01/WSProd?WSDL" xnocompile="true" xendorsed="true" package="wsprod">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSProd" destdir="${build.generated.dir}/jax-wsCache/WSProd" wsdl="${wsdl-WSProd}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.0.16:8080/Affablebean_01/WSProd?WSDL" xnocompile="true" xendorsed="true" package="wsprod">
             <depends file="${wsdl-WSProd}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/WSProd"/>
         </wsimport>
@@ -36,7 +36,7 @@
     <target name="wsimport-client-WSCustomer" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/WSCustomer"/>
         <property name="wsdl-WSCustomer" location="xml-resources/web-service-references/WSCustomer/wsdl/localhost_8080/Affablebean_01/WSCustomer.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSCustomer" destdir="${build.generated.dir}/jax-wsCache/WSCustomer" wsdl="${wsdl-WSCustomer}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Affablebean_01/WSCustomer?WSDL" xnocompile="true" xendorsed="true" package="wscust">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSCustomer" destdir="${build.generated.dir}/jax-wsCache/WSCustomer" wsdl="${wsdl-WSCustomer}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.0.16:8080/Affablebean_01/WSCustomer?WSDL" xnocompile="true" xendorsed="true" package="wscust">
             <depends file="${wsdl-WSCustomer}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/WSCustomer"/>
         </wsimport>
@@ -50,5 +50,39 @@
         <delete dir="${build.generated.dir}/jax-wsCache/WSCustomer"/>
         <delete dir="${build.generated.sources.dir}/jax-ws/wscust"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSProd, wsimport-client-WSCustomer"/>
+    <target name="wsimport-client-wsPedidoHeader" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/wsPedidoHeader"/>
+        <property name="wsdl-wsPedidoHeader" location="xml-resources/web-service-references/wsPedidoHeader/wsdl/192.168.0.16_8080/Affablebean_01/wsPedidoHeader.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/wsPedidoHeader" destdir="${build.generated.dir}/jax-wsCache/wsPedidoHeader" wsdl="${wsdl-wsPedidoHeader}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.0.16:8080/Affablebean_01/wsPedidoHeader?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-wsPedidoHeader}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/wsPedidoHeader"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/wsPedidoHeader">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-wsPedidoHeader" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/wsPedidoHeader"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/wspedidoheader"/>
+    </target>
+    <target name="wsimport-client-wsPedidoItems" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/wsPedidoItems"/>
+        <property name="wsdl-wsPedidoItems" location="xml-resources/web-service-references/wsPedidoItems/wsdl/192.168.0.16_8080/Affablebean_01/wsPedidoItems.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/wsPedidoItems" destdir="${build.generated.dir}/jax-wsCache/wsPedidoItems" wsdl="${wsdl-wsPedidoItems}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://192.168.0.16:8080/Affablebean_01/wsPedidoItems?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-wsPedidoItems}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/wsPedidoItems"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/wsPedidoItems">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-wsPedidoItems" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/wsPedidoItems"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/wspedidoitems"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSProd, wsimport-client-WSCustomer, wsimport-client-wsPedidoHeader, wsimport-client-wsPedidoItems"/>
 </project>

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package wsPedidoHeader;
+package wspedidoitems;
 
-import entidades.CustomerOrder;
-import frontera.CustomerOrderFacade;
+import entidades.OrderedProduct;
+import frontera.OrderedProductFacade;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.jws.Oneway;
@@ -16,45 +16,45 @@ import javax.jws.WebService;
 
 /**
  *
- * @author aalex
+ * @author tabat
  */
-@WebService(serviceName = "WSPedidoHeader")
-public class WSPedidoHeader {
+@WebService(serviceName = "wsPedidoItems")
+public class wsPedidoItems {
 
     @EJB
-    private CustomerOrderFacade ejbRef;// Add business logic below. (Right-click in editor and choose
+    private OrderedProductFacade ejbRef;// Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Web Service Operation")
 
     @WebMethod(operationName = "create")
     @Oneway
-    public void create(@WebParam(name = "entity") CustomerOrder entity) {
+    public void create(@WebParam(name = "entity") OrderedProduct entity) {
         ejbRef.create(entity);
     }
 
     @WebMethod(operationName = "edit")
     @Oneway
-    public void edit(@WebParam(name = "entity") CustomerOrder entity) {
+    public void edit(@WebParam(name = "entity") OrderedProduct entity) {
         ejbRef.edit(entity);
     }
 
     @WebMethod(operationName = "remove")
     @Oneway
-    public void remove(@WebParam(name = "entity") CustomerOrder entity) {
+    public void remove(@WebParam(name = "entity") OrderedProduct entity) {
         ejbRef.remove(entity);
     }
 
     @WebMethod(operationName = "find")
-    public CustomerOrder find(@WebParam(name = "id") Object id) {
+    public OrderedProduct find(@WebParam(name = "id") Object id) {
         return ejbRef.find(id);
     }
 
     @WebMethod(operationName = "findAll")
-    public List<CustomerOrder> findAll() {
+    public List<OrderedProduct> findAll() {
         return ejbRef.findAll();
     }
 
     @WebMethod(operationName = "findRange")
-    public List<CustomerOrder> findRange(@WebParam(name = "range") int[] range) {
+    public List<OrderedProduct> findRange(@WebParam(name = "range") int[] range) {
         return ejbRef.findRange(range);
     }
 

@@ -44,9 +44,9 @@ public class ProductFacade extends AbstractFacade<Product> {
      public java.util.List<Product> findByNameLike(String nombre)
     {
         em = getEntityManager();
-        TypedQuery<Product> queryCatByName = em.createNamedQuery("Product.findByNameLike", Product.class);
-        queryCatByName.setParameter("name", nombre);
-        java.util.List<Product> lista= queryCatByName.getResultList();
+        TypedQuery<Product> queryProdByName = em.createNamedQuery("Product.findByNameLike", Product.class);
+        queryProdByName.setParameter("name", nombre);
+        java.util.List<Product> lista= queryProdByName.getResultList();
 
         return lista;
     }
@@ -67,12 +67,9 @@ public class ProductFacade extends AbstractFacade<Product> {
           Object[] x = (Object[])obj;
           
          cat = (entidades.Category)x[0];
- 
-         strRes += cat.getId() + " " + cat.getName() + 
-                  "... Cantidad de productos: "+ x[2].toString()+
+         strRes += cat.getId() + " " + cat.getName() + "... Cantidad de productos: "+ x[2].toString()+
                   " ... Precio Promedio:"+ x[1].toString() + '\n';
         }
-        
         return strRes;
     }
    
