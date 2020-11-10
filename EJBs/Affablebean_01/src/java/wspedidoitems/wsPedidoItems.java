@@ -6,6 +6,7 @@
 package wspedidoitems;
 
 import entidades.OrderedProduct;
+import entidades.OrderedProductPK;
 import frontera.OrderedProductFacade;
 import java.util.List;
 import java.util.logging.Level;
@@ -32,6 +33,11 @@ public class wsPedidoItems {
     //@Oneway
     public void create(@WebParam(name = "entity") OrderedProduct entity) {
         ejbRef.create(entity);
+    }
+    
+    public OrderedProductPK create_PK(@WebParam(name = "entity") OrderedProduct entity) {
+        ejbRef.create(entity);
+        return entity.getOrderedProductPK(); 
     }
 
     @WebMethod(operationName = "edit")

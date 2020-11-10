@@ -26,9 +26,10 @@ public class WSCat {
     // "Insert Code > Add Web Service Operation")
 
     @WebMethod(operationName = "create")
-    @Oneway
-    public void create(@WebParam(name = "entity") Category entity) {
+    //@Oneway
+    public long create(@WebParam(name = "entity") Category entity) {
         ejbRef.create(entity);
+        return entity.getId(); 
     }
 
     @WebMethod(operationName = "edit")

@@ -2,10 +2,10 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services/>
   <clients>
-    <client name="WSProd">
-      <wsdl-url>http://localhost:8080/Affablebean_01/WSProd?WSDL</wsdl-url>
-      <local-wsdl-file>localhost_8080/Affablebean_01/WSProd.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">wsprod</package-name>
+    <client name="WSCat">
+      <wsdl-url>http://192.168.0.16:8080/Affablebean_01/WSCat?WSDL</wsdl-url>
+      <local-wsdl-file>192.168.0.16_8080/Affablebean_01/WSCat.wsdl</local-wsdl-file>
+      <package-name>wscat</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.0.16:8080/Affablebean_01/WSProd?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://192.168.0.16:8080/Affablebean_01/WSCat?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -32,16 +32,44 @@
           <wsimport-option-name>xendorsed</wsimport-option-name>
           <wsimport-option-value>true</wsimport-option-value>
         </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="WSProd">
+      <wsdl-url>http://localhost:8080/Affablebean_01/WSProd?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/Affablebean_01/WSProd.wsdl</local-wsdl-file>
+      <package-name>wsprod</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
         <wsimport-option>
-          <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>wsprod</wsimport-option-value>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/Affablebean_01/WSProd?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>
     <client name="WSCustomer">
       <wsdl-url>http://localhost:8080/Affablebean_01/WSCustomer?WSDL</wsdl-url>
       <local-wsdl-file>localhost_8080/Affablebean_01/WSCustomer.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">wscust</package-name>
+      <package-name>wscust</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -58,7 +86,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.0.16:8080/Affablebean_01/WSCustomer?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/Affablebean_01/WSCustomer?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -67,10 +95,6 @@
         <wsimport-option>
           <wsimport-option-name>xendorsed</wsimport-option-name>
           <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>wscust</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>
@@ -127,38 +151,6 @@
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
           <wsimport-option-value>http://192.168.0.16:8080/Affablebean_01/wsPedidoItems?WSDL</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xnocompile</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>xendorsed</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-      </wsimport-options>
-    </client>
-    <client name="WSCat">
-      <wsdl-url>http://192.168.0.16:8080/Affablebean_01/WSCat?WSDL</wsdl-url>
-      <local-wsdl-file>192.168.0.16_8080/Affablebean_01/WSCat.wsdl</local-wsdl-file>
-      <package-name>wscat</package-name>
-      <catalog-file>catalog.xml</catalog-file>
-      <wsimport-options>
-        <wsimport-option>
-          <wsimport-option-name>extension</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>verbose</wsimport-option-name>
-          <wsimport-option-value>true</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>fork</wsimport-option-name>
-          <wsimport-option-value>false</wsimport-option-value>
-        </wsimport-option>
-        <wsimport-option>
-          <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.0.16:8080/Affablebean_01/WSCat?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

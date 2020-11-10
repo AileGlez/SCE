@@ -7,6 +7,7 @@ package tstwsprodpojo;
 
 import java.math.BigDecimal;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -26,6 +27,33 @@ public class Tstwsprodpojo {
          XMLGregorianCalendar fecha = null;
         boolean primero            = true;
         wsprod.Category cat        = new wsprod.Category();
+        
+        //
+       // Nota: en lo que sigue, CU es su Clave Única
+       //
+       String strCU = "155999";
+       // Primer Nombre de Pila, primer apellido, segundo apellido (3 cadenas)
+       String strNombre[] = {"Tábata","González","Alvarado"};
+       double dblCU = Double.parseDouble(strCU);
+       XMLGregorianCalendar hoy = null;
+       
+       try 
+       {
+          hoy = DatatypeFactory.newInstance().newXMLGregorianCalendar(new GregorianCalendar());
+       } 
+       catch (DatatypeConfigurationException ex) 
+       {
+           System.out.println("Error al crear xmlFecha:" + ex);
+           System.exit(1);
+       }
+       
+       System.out.println("SCE: Segundo examen parcial de " + strCU + " " +
+                           strNombre[0] + " " + strNombre[1] + " " + strNombre[2]);
+       System.out.println("----------------------------------------------------");
+       System.out.println("          " + hoy.toString());
+       System.out.println("----------------------------------------------------");
+       
+        
         
         System.out.println("Son " + count_Product() + " productos");
         System.out.println("--------------Product.findAll() ----------------------------");
@@ -62,6 +90,16 @@ public class Tstwsprodpojo {
                 + prodLike.getPrice()+ " " +prodLike.getLastUpdate()+ " \n");
         }
         
+        int cat_id; 
+       wscat.Category catnew = new wscat.Category();
+       catnew.setName("Limpieza " + strCU);
+       cat_id = (int) create_Category(catnew);
+       catnew.setId(cat_id);
+       System.out.println("Se ha dado de alta la categoría " + catnew.getId() + " ... " + catnew.getName());
+       List<wscat.Category> liscat = findAll_Category();
+       System.out.println("Lista de Categorías:" + ( liscat.isEmpty() ? " Lista sin elementos":"" ));
+       for(wscat.Category cate:liscat)
+            System.out.println("Categoría:" + cate.getId() + "->" + cate.getName());
         
         String strByName = "chocolate cookies";
         System.out.println("------------------ name = " + strByName + " ------------------------");
@@ -295,6 +333,18 @@ public class Tstwsprodpojo {
         wspedidoitems.WsPedidoItems_Service service = new wspedidoitems.WsPedidoItems_Service();
         wspedidoitems.WsPedidoItems port = service.getWsPedidoItemsPort();
         port.create(entity);
+    }
+
+    private static long create_Category(wscat.Category entity) {
+        wscat.WSCat_Service service = new wscat.WSCat_Service();
+        wscat.WSCat port = service.getWSCatPort();
+        return port.create(entity);
+    }
+
+    private static java.util.List<wscat.Category> findAll_Category() {
+        wscat.WSCat_Service service = new wscat.WSCat_Service();
+        wscat.WSCat port = service.getWSCatPort();
+        return port.findAll();
     }
     
 
