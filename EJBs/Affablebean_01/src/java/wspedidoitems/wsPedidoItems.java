@@ -8,11 +8,14 @@ package wspedidoitems;
 import entidades.OrderedProduct;
 import frontera.OrderedProductFacade;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.jws.Oneway;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import wscust.WSCustomer;
 
 /**
  *
@@ -62,5 +65,6 @@ public class wsPedidoItems {
     public int count() {
         return ejbRef.count();
     }
+    
     
 }

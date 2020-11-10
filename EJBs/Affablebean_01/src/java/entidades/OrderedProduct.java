@@ -20,7 +20,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author aalex
+ * @author aalex@NamedQueries({
+    @NamedQuery(name = "Customer.createOrderedP", query = "INSERT INTO OrderedProduct (product_id, quantity) VALUES(:productid, :quantity )")})
+
  */
 @Entity
 @Table(name = "ORDERED_PRODUCT")
@@ -29,7 +31,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "OrderedProduct.findAll", query = "SELECT o FROM OrderedProduct o")
     , @NamedQuery(name = "OrderedProduct.findByCustomerOrderId", query = "SELECT o FROM OrderedProduct o WHERE o.orderedProductPK.customerOrderId = :customerOrderId")
     , @NamedQuery(name = "OrderedProduct.findByProductId", query = "SELECT o FROM OrderedProduct o WHERE o.orderedProductPK.productId = :productId")
-    , @NamedQuery(name = "OrderedProduct.findByQuantity", query = "SELECT o FROM OrderedProduct o WHERE o.quantity = :quantity")})
+    , @NamedQuery(name = "OrderedProduct.findByQuantity", query = "SELECT o FROM OrderedProduct o WHERE o.quantity = :quantity")
+})
 public class OrderedProduct implements Serializable {
 
     private static final long serialVersionUID = 1L;

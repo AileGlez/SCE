@@ -21,9 +21,7 @@ import wsprod.Product;
  */
 public class Tstwsprodpojo {
 
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String[] args) {
          XMLGregorianCalendar fecha = null;
         boolean primero            = true;
@@ -32,13 +30,12 @@ public class Tstwsprodpojo {
         System.out.println("Son " + count_Product() + " productos");
         System.out.println("--------------Product.findAll() ----------------------------");
         java.util.List<wsprod.Product> lisprod = findAll_Product();
-        for(wsprod.Product p:lisprod)
-        {
+        
+        for(wsprod.Product p:lisprod){
             System.out.println(p.getId() + " " + p.getName() + " " + p.getDescription() + " " +
                     p.getPrice() + " " + p.getLastUpdate() + " Cat:" +
                     p.getCategoryId().getId() + " " + p.getCategoryId().getName());
-            if(primero)
-            {
+            if(primero){
               //cat   = p.getCategoryId(); // se obtiene la categoría
               cat.setId(p.getCategoryId().getId());
               cat.setName(p.getCategoryId().getName());
@@ -194,7 +191,7 @@ public class Tstwsprodpojo {
         }
         
         //agregar los items
-         wspedidoitems.OrderedProductPK oppkv; 
+         wspedidoitems.OrderedProductPK oppkv;
          wspedidoitems.OrderedProduct item; 
         
          for ( int k = 0; k <=2; k++)
@@ -203,10 +200,11 @@ public class Tstwsprodpojo {
           oppkv.setCustomerOrderId((int)idPedidoHeader);
           oppkv.setProductId(listaProductos.get(k).getId());  
             
+          short n = 2; 
           item = new wspedidoitems.OrderedProduct();
           item.setOrderedProductPK(oppkv);
-          item.setQuantity((short)2);
           item.setCustomerOrder(itco);
+          item.setQuantity(n);
           item.setProduct(listaProductos.get(k));
           create_PedidoItem(item);
         }

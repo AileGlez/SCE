@@ -97,7 +97,7 @@ INSERT INTO product (name,price,description,last_update,category_id) VALUES
 
 CREATE  TABLE ordered_product
  (
-  customer_order_id INT  NOT NULL GENERATED ALWAYS AS IDENTITY 
+  customer_order_id INT  NOT NULL  
      (START WITH 1 ,INCREMENT BY 1), 
   product_id INT  NOT NULL ,
   quantity SMALLINT  NOT NULL DEFAULT 1 ,

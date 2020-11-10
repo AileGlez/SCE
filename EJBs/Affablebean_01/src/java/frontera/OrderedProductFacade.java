@@ -9,6 +9,7 @@ import entidades.OrderedProduct;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -29,4 +30,5 @@ public class OrderedProductFacade extends AbstractFacade<OrderedProduct> {
         super(OrderedProduct.class);
     }
     
+   
 }
