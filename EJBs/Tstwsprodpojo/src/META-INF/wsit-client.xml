@@ -7,4 +7,5 @@
  >
     <import location="WSProd.xml" namespace="http://wsprod/"/>
     <import location="WSCustomer.xml" namespace="http://wscust/"/>
+    <import location="wsPedidoItems.xml" namespace="http://wspedidoitems/"/>
 </definitions>

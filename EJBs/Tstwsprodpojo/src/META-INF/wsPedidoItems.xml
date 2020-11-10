@@ -22,20 +22,14 @@
 <message name="create">
 <part name="parameters" element="tns:create"/>
 </message>
-<message name="createResponse">
-<part name="parameters" element="tns:createResponse"/>
-</message>
-<message name="edit">
-<part name="parameters" element="tns:edit"/>
-</message>
-<message name="editResponse">
-<part name="parameters" element="tns:editResponse"/>
-</message>
 <message name="findAll">
 <part name="parameters" element="tns:findAll"/>
 </message>
 <message name="findAllResponse">
 <part name="parameters" element="tns:findAllResponse"/>
+</message>
+<message name="edit">
+<part name="parameters" element="tns:edit"/>
 </message>
 <message name="findRange">
 <part name="parameters" element="tns:findRange"/>
@@ -56,16 +50,14 @@
 <output wsam:Action="http://wspedidoitems/wsPedidoItems/findResponse" message="tns:findResponse"/>
 </operation>
 <operation name="create">
-<input wsam:Action="http://wspedidoitems/wsPedidoItems/createRequest" message="tns:create"/>
-<output wsam:Action="http://wspedidoitems/wsPedidoItems/createResponse" message="tns:createResponse"/>
-</operation>
-<operation name="edit">
-<input wsam:Action="http://wspedidoitems/wsPedidoItems/editRequest" message="tns:edit"/>
-<output wsam:Action="http://wspedidoitems/wsPedidoItems/editResponse" message="tns:editResponse"/>
+<input wsam:Action="http://wspedidoitems/wsPedidoItems/create" message="tns:create"/>
 </operation>
 <operation name="findAll">
 <input wsam:Action="http://wspedidoitems/wsPedidoItems/findAllRequest" message="tns:findAll"/>
 <output wsam:Action="http://wspedidoitems/wsPedidoItems/findAllResponse" message="tns:findAllResponse"/>
+</operation>
+<operation name="edit">
+<input wsam:Action="http://wspedidoitems/wsPedidoItems/edit" message="tns:edit"/>
 </operation>
 <operation name="findRange">
 <input wsam:Action="http://wspedidoitems/wsPedidoItems/findRangeRequest" message="tns:findRange"/>
@@ -103,18 +95,6 @@
 <input>
 <soap:body use="literal"/>
 </input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="edit">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
 </operation>
 <operation name="findAll">
 <soap:operation soapAction=""/>
@@ -124,6 +104,12 @@
 <output>
 <soap:body use="literal"/>
 </output>
+</operation>
+<operation name="edit">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
 </operation>
 <operation name="findRange">
 <soap:operation soapAction=""/>

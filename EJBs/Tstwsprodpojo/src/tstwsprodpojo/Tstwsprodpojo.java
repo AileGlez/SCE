@@ -149,7 +149,75 @@ public class Tstwsprodpojo {
         oh.setDateCreated(xmlFecha);
         
         //Tenemos que crear el pedido header que corresponde al customer ordered
+        long idPedidoHeader = create_pedidoHeader(oh); 
+        System.out.println("==================================================");
+        System.out.println("Pedido header le corresponde el # de pedido: " + idPedidoHeader);
+        System.out.println("==================================================");
       
+        // creamos el pedidos items customer order para poder dar de alta los items
+        wspedidoitems.CustomerOrder itco = new wspedidoitems.CustomerOrder(); 
+        itco.setAmount(oh.getAmount());
+        itco.setConfirmationNumber(oh.getConfirmationNumber());
+        itco.setCustomerId(itclte);
+        itco.setDateCreated(oh.getDateCreated());
+        itco.setId((int)idPedidoHeader);
+        
+        //lista de productos
+        
+         java.util.List<wspedidoitems.Product> listaProductos = new java.util.ArrayList<>();
+        wspedidoitems.Product itp;
+        wspedidoitems.Category itcat;
+         for (Product pedList: lisprod){
+             
+             //Se asigna el id y nombre de la cateroria
+             itcat = new wspedidoitems.Category(); 
+             itcat.setId(pedList.getCategoryId().getId());
+             itcat.setName(pedList.getCategoryId().getName());
+             
+             //Se asignan todas las variables del producto
+             itp = new wspedidoitems.Product(); 
+             itp.setCategoryId(itcat);
+             itp.setDescription(pedList.getDescription());
+             itp.setId(pedList.getId());
+             itp.setLastUpdate(pedList.getLastUpdate());
+             itp.setName(pedList.getName());
+             itp.setPrice(pedList.getPrice());
+             
+             listaProductos.add(itp);
+         }
+         
+         java.util.List<wspedidoheader.CustomerOrder> pedidos = findAll_customerOrder();
+         System.out.println("========= Pedidos =========");
+        for(wspedidoheader.CustomerOrder co:pedidos )
+        {
+            System.out.println("pedido no. " + co.getId() + " del Clte No." + co.getCustomerId().getName() + " " + co.getDateCreated() + " por " + co.getAmount());
+        }
+        
+        //agregar los items
+         wspedidoitems.OrderedProductPK oppkv; 
+         wspedidoitems.OrderedProduct item; 
+        
+         for ( int k = 0; k <=2; k++)
+        {
+          oppkv = new wspedidoitems.OrderedProductPK();
+          oppkv.setCustomerOrderId((int)idPedidoHeader);
+          oppkv.setProductId(listaProductos.get(k).getId());  
+            
+          item = new wspedidoitems.OrderedProduct();
+          item.setOrderedProductPK(oppkv);
+          item.setQuantity((short)2);
+          item.setCustomerOrder(itco);
+          item.setProduct(listaProductos.get(k));
+          create_PedidoItem(item);
+        }
+         
+         
+        java.util.List<wspedidoitems.OrderedProduct> listItem = findAll_orderedProduct(); 
+        System.out.println("=========== items ===========");
+        for(wspedidoitems.OrderedProduct pit: listItem)
+        {
+            System.out.println("item: Pedido No. " + pit.getCustomerOrder().getId() + " " + pit.getProduct().getDescription() + " cant. " + pit.getQuantity());
+        }
     }
 
     private static int count_Product() {
@@ -169,7 +237,7 @@ public class Tstwsprodpojo {
         wscust.WSCustomer port = service.getWSCustomerPort();
         return port.findAll();
     }
-
+    
     private static java.util.List<wsprod.Product> findByName(java.lang.String name) {
         wsprod.WSProd_Service service = new wsprod.WSProd_Service();
         wsprod.WSProd port = service.getWSProdPort();
@@ -207,10 +275,29 @@ public class Tstwsprodpojo {
         return port.findByNameLike(name);
     }
 
+    private static long create_pedidoHeader(wspedidoheader.CustomerOrder entity) {
+        wspedidoheader.WsPedidoHeader_Service service = new wspedidoheader.WsPedidoHeader_Service();
+        wspedidoheader.WsPedidoHeader port = service.getWsPedidoHeaderPort();
+        return port.create(entity);
+    }
 
+    private static java.util.List<wspedidoheader.CustomerOrder> findAll_customerOrder() {
+        wspedidoheader.WsPedidoHeader_Service service = new wspedidoheader.WsPedidoHeader_Service();
+        wspedidoheader.WsPedidoHeader port = service.getWsPedidoHeaderPort();
+        return port.findAll();
+    }
+
+    private static java.util.List<wspedidoitems.OrderedProduct> findAll_orderedProduct() {
+        wspedidoitems.WsPedidoItems_Service service = new wspedidoitems.WsPedidoItems_Service();
+        wspedidoitems.WsPedidoItems port = service.getWsPedidoItemsPort();
+        return port.findAll();
+    }
+
+    private static void create_PedidoItem(wspedidoitems.OrderedProduct entity) {
+        wspedidoitems.WsPedidoItems_Service service = new wspedidoitems.WsPedidoItems_Service();
+        wspedidoitems.WsPedidoItems port = service.getWsPedidoItemsPort();
+        port.create(entity);
+    }
     
 
-    
-
-    
 }

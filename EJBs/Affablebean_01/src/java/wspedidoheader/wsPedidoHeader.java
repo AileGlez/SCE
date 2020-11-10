@@ -32,7 +32,8 @@ public class wsPedidoHeader {
     //@Oneway
     public long create(@WebParam(name = "entity") CustomerOrder entity) {
         ejbRef.create(entity);
-        return entity.getId(); 
+        long idNvoCustomerOrder= entity.getId();
+        return idNvoCustomerOrder;
     }
 
     @WebMethod(operationName = "edit")

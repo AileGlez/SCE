@@ -26,13 +26,13 @@ public class wsPedidoItems {
     // "Insert Code > Add Web Service Operation")
 
     @WebMethod(operationName = "create")
-    @Oneway
+    //@Oneway
     public void create(@WebParam(name = "entity") OrderedProduct entity) {
         ejbRef.create(entity);
     }
 
     @WebMethod(operationName = "edit")
-    @Oneway
+    //@Oneway
     public void edit(@WebParam(name = "entity") OrderedProduct entity) {
         ejbRef.edit(entity);
     }
