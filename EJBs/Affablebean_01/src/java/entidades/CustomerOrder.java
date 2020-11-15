@@ -21,6 +21,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.Query;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -156,5 +157,6 @@ public class CustomerOrder implements Serializable {
     public String toString() {
         return "entidades.CustomerOrder[ id=" + id + " ]";
     }
+    
     
 }

@@ -1,8 +1,10 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://wspedidoitems/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://wspedidoitems/">
-
-<xs:element name="category" type="tns:category"/>
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://wspedidoheader/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://wspedidoheader/">
 
 <xs:element name="count" type="tns:count"/>
+
+<xs:element name="countAmount" type="tns:countAmount"/>
+
+<xs:element name="countAmountResponse" type="tns:countAmountResponse"/>
 
 <xs:element name="countResponse" type="tns:countResponse"/>
 
@@ -10,17 +12,11 @@
 
 <xs:element name="createResponse" type="tns:createResponse"/>
 
-<xs:element name="create_PK" type="tns:create_PK"/>
-
-<xs:element name="create_PKResponse" type="tns:create_PKResponse"/>
-
 <xs:element name="customer" type="tns:customer"/>
 
 <xs:element name="customerOrder" type="tns:customerOrder"/>
 
 <xs:element name="edit" type="tns:edit"/>
-
-<xs:element name="editResponse" type="tns:editResponse"/>
 
 <xs:element name="find" type="tns:find"/>
 
@@ -34,10 +30,6 @@
 
 <xs:element name="findResponse" type="tns:findResponse"/>
 
-<xs:element name="orderedProduct" type="tns:orderedProduct"/>
-
-<xs:element name="product" type="tns:product"/>
-
 <xs:element name="remove" type="tns:remove"/>
 
 <xs:complexType name="findAll">
@@ -46,16 +38,7 @@
 
 <xs:complexType name="findAllResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:orderedProduct" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="orderedProduct">
-<xs:sequence>
-<xs:element name="customerOrder" type="tns:customerOrder" minOccurs="0"/>
-<xs:element name="orderedProductPK" type="tns:orderedProductPK" minOccurs="0"/>
-<xs:element name="product" type="tns:product" minOccurs="0"/>
-<xs:element name="quantity" type="xs:short"/>
+<xs:element name="return" type="tns:customerOrder" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -81,34 +64,9 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="orderedProductPK">
-<xs:sequence>
-<xs:element name="customerOrderId" type="xs:int"/>
-<xs:element name="productId" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="product">
-<xs:sequence>
-<xs:element name="categoryId" type="tns:category" minOccurs="0"/>
-<xs:element name="description" type="xs:string" minOccurs="0"/>
-<xs:element name="id" type="xs:int" minOccurs="0"/>
-<xs:element name="lastUpdate" type="xs:dateTime" minOccurs="0"/>
-<xs:element name="name" type="xs:string" minOccurs="0"/>
-<xs:element name="price" type="xs:decimal" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="category">
-<xs:sequence>
-<xs:element name="id" type="xs:int" minOccurs="0"/>
-<xs:element name="name" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="remove">
 <xs:sequence>
-<xs:element name="entity" type="tns:orderedProduct" minOccurs="0"/>
+<xs:element name="entity" type="tns:customerOrder" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -124,34 +82,30 @@
 
 <xs:complexType name="create">
 <xs:sequence>
-<xs:element name="entity" type="tns:orderedProduct" minOccurs="0"/>
+<xs:element name="entity" type="tns:customerOrder" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="createResponse">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="create_PK">
 <xs:sequence>
-<xs:element name="entity" type="tns:orderedProduct" minOccurs="0"/>
+<xs:element name="return" type="xs:long"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="create_PKResponse">
+<xs:complexType name="countAmount">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="countAmountResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:orderedProductPK" minOccurs="0"/>
+<xs:element name="return" type="xs:double"/>
 </xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="edit">
 <xs:sequence>
-<xs:element name="entity" type="tns:orderedProduct" minOccurs="0"/>
+<xs:element name="entity" type="tns:customerOrder" minOccurs="0"/>
 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="editResponse">
-<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="find">
@@ -162,7 +116,7 @@
 
 <xs:complexType name="findResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:orderedProduct" minOccurs="0"/>
+<xs:element name="return" type="tns:customerOrder" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -174,7 +128,7 @@
 
 <xs:complexType name="findRangeResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:orderedProduct" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="return" type="tns:customerOrder" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

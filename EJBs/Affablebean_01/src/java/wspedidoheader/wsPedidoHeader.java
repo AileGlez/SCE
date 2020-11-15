@@ -6,6 +6,7 @@
 package wspedidoheader;
 
 import entidades.CustomerOrder;
+import entidades.OrderedProduct;
 import frontera.CustomerOrderFacade;
 import java.util.List;
 import java.util.logging.Level;

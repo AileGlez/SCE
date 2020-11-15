@@ -10,4 +10,8 @@
     <system systemId="http://192.168.0.16:8080/Affablebean_01/wsPedidoHeader?xsd=1" uri="wsdl/192.168.0.16_8080/Affablebean_01/wsPedidoHeader.xsd_1.xsd"/>
     <system systemId="http://192.168.0.16:8080/Affablebean_01/wsPedidoItems?WSDL" uri="wsdl/192.168.0.16_8080/Affablebean_01/wsPedidoItems.wsdl"/>
     <system systemId="http://192.168.0.16:8080/Affablebean_01/wsPedidoItems?xsd=1" uri="wsdl/192.168.0.16_8080/Affablebean_01/wsPedidoItems.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Affablebean_01/wsPedidoHeader?WSDL" uri="wsdl/localhost_8080/Affablebean_01/wsPedidoHeader.wsdl"/>
+    <system systemId="http://localhost:8080/Affablebean_01/wsPedidoHeader?xsd=1" uri="wsdl/localhost_8080/Affablebean_01/wsPedidoHeader.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Affablebean_01/wsPedidoItems?WSDL" uri="wsdl/localhost_8080/Affablebean_01/wsPedidoItems.wsdl"/>
+    <system systemId="http://localhost:8080/Affablebean_01/wsPedidoItems?xsd=1" uri="wsdl/localhost_8080/Affablebean_01/wsPedidoItems.xsd_1.xsd"/>
 </catalog>

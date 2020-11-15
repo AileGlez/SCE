@@ -6,7 +6,8 @@
 package frontera;
 
 import entidades.CustomerOrder;
-import static javafx.scene.input.KeyCode.T;
+import entidades.OrderedProduct;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -38,5 +39,6 @@ public class CustomerOrderFacade extends AbstractFacade<CustomerOrder> {
         Object result = query.getSingleResult(); 
         return Double.parseDouble(result.toString());
     }
+    
      
 }

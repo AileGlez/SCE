@@ -6,9 +6,12 @@
 package frontera;
 
 import entidades.OrderedProduct;
+import entidades.Product;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 /**
@@ -30,5 +33,13 @@ public class OrderedProductFacade extends AbstractFacade<OrderedProduct> {
         super(OrderedProduct.class);
     }
     
+    public java.util.List<OrderedProduct> findOrderedProductByIdCustomerOrder(int id)
+    {
+        em = getEntityManager();
+        Query query = em.createNamedQuery("OrderedProduct.findOrderedProductByIdCustomerOrder", OrderedProduct.class);
+        query.setParameter("customerOrderID", id);
+        java.util.List<OrderedProduct> lista= query.getResultList();
+        return lista;
+    }
    
 }

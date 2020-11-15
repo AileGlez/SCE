@@ -363,17 +363,27 @@ public class Pojo_examen {
        // Ejer 5)  Obtener cada encabezado con sus items.
        //
        
+       for(wspedidoheader.CustomerOrder co : lisco){
+           System.out.println("CustomerOrder:" +
+                                "       Id:" + co.getId() + 
+                                "     Fecha:"     + co.getDateCreated() +
+                                "      Clte:"     + co.getCustomerId().getId() +
+                                " "          + co.getCustomerId().getName() +
+                                " Num. conf:" + co.getConfirmationNumber() +
+                                "     Monto:"    + co.getAmount());
+           List<wspedidoitems.OrderedProduct> items = findOrderedProductByIdCustomerOrder(co.getId());
+           for(wspedidoitems.OrderedProduct it:items){
+               System.out.println("     Item:  "+
+                                "                 id:" + it.getProduct().getId() +
+                                "           Producto:" + it.getProduct().getName() +
+                                "           Cantidad:" + it.getQuantity());
+           }
+       }
       
        //
        // Ejer 6) Obtener el monto total de los pedidos (Amount de CustomerOrder)
        //
-       
-     long total = 0;
-       for (wspedidoitems.OrderedProduct itm2:lisitems){
-           total = itm2.getCustomerOrder().getAmount().longValue() + total; 
-       }
-        System.out.println("\n EL Monto total de  los pedidos es: " + total);
-        System.out.println("El monto con query es: " );
+        System.out.println("El monto total de todos los pedidos es: " + countAmount());
        
        //
        // ======================  FIN del main() ===========================
@@ -558,6 +568,18 @@ public class Pojo_examen {
         wspedidoitems.WsPedidoItems_Service service = new wspedidoitems.WsPedidoItems_Service();
         wspedidoitems.WsPedidoItems port = service.getWsPedidoItemsPort();
         return port.createPK(entity);
+    }
+
+    private static double countAmount() {
+        wspedidoheader.WsPedidoHeader_Service service = new wspedidoheader.WsPedidoHeader_Service();
+        wspedidoheader.WsPedidoHeader port = service.getWsPedidoHeaderPort();
+        return port.countAmount();
+    }
+
+    private static java.util.List<wspedidoitems.OrderedProduct> findOrderedProductByIdCustomerOrder(int arg0) {
+        wspedidoitems.WsPedidoItems_Service service = new wspedidoitems.WsPedidoItems_Service();
+        wspedidoitems.WsPedidoItems port = service.getWsPedidoItemsPort();
+        return port.findOrderedProductByIdCustomerOrder(arg0);
     }
 
     

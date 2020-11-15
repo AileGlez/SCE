@@ -72,5 +72,9 @@ public class wsPedidoItems {
         return ejbRef.count();
     }
     
+    @WebMethod(operationName = "findOrderedProductByIdCustomerOrder")
+    public java.util.List<OrderedProduct> findOrderedProductByIdCustomerOrder(int id) {
+        return ejbRef.findOrderedProductByIdCustomerOrder(id); 
+    }
     
 }

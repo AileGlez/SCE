@@ -99,8 +99,8 @@
       </wsimport-options>
     </client>
     <client name="wsPedidoHeader">
-      <wsdl-url>http://192.168.0.16:8080/Affablebean_01/wsPedidoHeader?WSDL</wsdl-url>
-      <local-wsdl-file>192.168.0.16_8080/Affablebean_01/wsPedidoHeader.wsdl</local-wsdl-file>
+      <wsdl-url>http://localhost:8080/Affablebean_01/wsPedidoHeader?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/Affablebean_01/wsPedidoHeader.wsdl</local-wsdl-file>
       <package-name>wspedidoheader</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -131,8 +131,8 @@
       </wsimport-options>
     </client>
     <client name="wsPedidoItems">
-      <wsdl-url>http://192.168.0.16:8080/Affablebean_01/wsPedidoItems?WSDL</wsdl-url>
-      <local-wsdl-file>192.168.0.16_8080/Affablebean_01/wsPedidoItems.wsdl</local-wsdl-file>
+      <wsdl-url>http://localhost:8080/Affablebean_01/wsPedidoItems?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/Affablebean_01/wsPedidoItems.wsdl</local-wsdl-file>
       <package-name>wspedidoitems</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
