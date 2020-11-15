@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <definitions 
+ xmlns="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+ xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="mainclientconfig" 
+ >
+    <import location="WSCat.xml" namespace="http://wscat/"/>
+    <import location="WSProd.xml" namespace="http://wsprod/"/>
+    <import location="wsPedidoHeader.xml" namespace="http://wspedidoheader/"/>
+    <import location="wsPedidoItems.xml" namespace="http://wspedidoitems/"/>
+</definitions>

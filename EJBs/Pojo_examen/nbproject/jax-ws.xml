@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.0.16:8080/Affablebean_01/WSCat?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/Affablebean_01/WSCat?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -118,7 +118,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.0.16:8080/Affablebean_01/wsPedidoHeader?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/Affablebean_01/wsPedidoHeader?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -150,7 +150,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://192.168.0.16:8080/Affablebean_01/wsPedidoItems?WSDL</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/Affablebean_01/wsPedidoItems?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

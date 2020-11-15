@@ -16,6 +16,9 @@
     <service name="wsPedidoItems">
       <implementation-class>wspedidoitems.wsPedidoItems</implementation-class>
     </service>
+    <service name="WSPedidoItem">
+      <implementation-class>wsPedidoItem.WSPedidoItem</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

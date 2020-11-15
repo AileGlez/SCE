@@ -6,9 +6,11 @@
 package frontera;
 
 import entidades.CustomerOrder;
+import static javafx.scene.input.KeyCode.T;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,4 +31,12 @@ public class CustomerOrderFacade extends AbstractFacade<CustomerOrder> {
         super(CustomerOrder.class);
     }
     
+    public double countAmount()
+    {
+        em = getEntityManager();
+        Query query = em.createNativeQuery("SELECT SUM(c.AMOUNT) FROM Customer_Order c "); 
+        Object result = query.getSingleResult(); 
+        return Double.parseDouble(result.toString());
+    }
+     
 }

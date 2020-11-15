@@ -77,7 +77,7 @@ public class Pojo_examen {
        int cat_id; 
        wscat.Category catnew = new wscat.Category();
        catnew.setName("Limpieza " + strCU);
-       cat_id = (int) create_Category(catnew);
+      cat_id = (int) create_Category(catnew);
        catnew.setId(cat_id);
        System.out.println("Se ha dado de alta la categoría " + catnew.getId() + " ... " + catnew.getName());
        List<wscat.Category> liscat = findAll_Category();
@@ -373,7 +373,7 @@ public class Pojo_examen {
            total = itm2.getCustomerOrder().getAmount().longValue() + total; 
        }
         System.out.println("\n EL Monto total de  los pedidos es: " + total);
-       
+        System.out.println("El monto con query es: " );
        
        //
        // ======================  FIN del main() ===========================
